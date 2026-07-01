@@ -50,9 +50,11 @@ jobs:
             echo "::warning::Production deploy not armed — add CLOUDRON_SERVER, CLOUDRON_APP, CLOUDRON_TOKEN secrets. Skipping."
             exit 0
           fi
+          DIR=/app/data/public/wp-content/plugins/forminator-followup-boss
           cloudron --server "$CLOUDRON_SERVER" --token "$CLOUDRON_TOKEN" \
-            push --app "$CLOUDRON_APP" "$DEST/." \
-            /app/data/public/wp-content/plugins/forminator-followup-boss
+            exec --app "$CLOUDRON_APP" -- mkdir -p "$DIR"
+          cloudron --server "$CLOUDRON_SERVER" --token "$CLOUDRON_TOKEN" \
+            push --app "$CLOUDRON_APP" "$DEST/." "$DIR"
 
       - name: Activate plugin on production
         env:
