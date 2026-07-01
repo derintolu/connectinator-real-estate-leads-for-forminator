@@ -1,0 +1,55 @@
+name: CI / Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  lint:
+    name: PHP lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint all PHP files
+        run: |
+          fail=0
+          while IFS= read -r f; do
+            php -l "$f" > /dev/null || { echo "::error file=$f::PHP syntax error"; fail=1; }
+          done < <(find . -name '*.php' -not -path './.git/*')
+          exit $fail
+
+  deploy:
+    name: Deploy to production
+    needs: lint
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble plugin payload
+        run: |
+          DEST="$RUNNER_TEMP/forminator-followup-boss"
+          mkdir -p "$DEST"
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'node_modules' ./ "$DEST/"
+          echo "DEST=$DEST" >> "$GITHUB_ENV"
+      - name: Install Cloudron CLI
+        run: npm i -g cloudron
+      - name: Push to production plugin directory
+        env:
+          CLOUDRON_SERVER: ${{ secrets.CLOUDRON_SERVER }}
+          CLOUDRON_TOKEN: ${{ secrets.CLOUDRON_TOKEN }}
+          CLOUDRON_APP: ${{ secrets.CLOUDRON_APP }}
+        run: |
+          if [ -z "$CLOUDRON_TOKEN" ] || [ -z "$CLOUDRON_SERVER" ] || [ -z "$CLOUDRON_APP" ]; then
+            echo "::warning::Production deploy not armed — add CLOUDRON_SERVER, CLOUDRON_APP, CLOUDRON_TOKEN secrets. Skipping."
+            exit 0
+          fi
+          cloudron --server "$CLOUDRON_SERVER" --token "$CLOUDRON_TOKEN" \
+            push --app "$CLOUDRON_APP" "$DEST/." \
+            /app/data/public/wp-content/plugins/forminator-followup-boss
