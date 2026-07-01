@@ -53,3 +53,14 @@ jobs:
           cloudron --server "$CLOUDRON_SERVER" --token "$CLOUDRON_TOKEN" \
             push --app "$CLOUDRON_APP" "$DEST/." \
             /app/data/public/wp-content/plugins/forminator-followup-boss
+
+      - name: Activate plugin on production
+        env:
+          CLOUDRON_SERVER: ${{ secrets.CLOUDRON_SERVER }}
+          CLOUDRON_TOKEN: ${{ secrets.CLOUDRON_TOKEN }}
+          CLOUDRON_APP: ${{ secrets.CLOUDRON_APP }}
+        run: |
+          if [ -z "$CLOUDRON_TOKEN" ]; then echo "Deploy not armed; skipping."; exit 0; fi
+          cloudron --server "$CLOUDRON_SERVER" --token "$CLOUDRON_TOKEN" \
+            exec --app "$CLOUDRON_APP" -- \
+            bash -lc 'cd /app/data/public && wp plugin activate forminator-followup-boss 2>/dev/null; wp cache flush 2>/dev/null; echo deployed' || true
