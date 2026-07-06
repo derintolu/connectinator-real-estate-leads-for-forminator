@@ -46,6 +46,17 @@ final class Forminator_Followupboss extends Forminator_Integration {
 		return true;
 	}
 
+	/**
+	 * Icons/images live in this plugin's own assets/ folder.
+	 *
+	 * The base class resolves assets to forminator/addons/pro/{slug}/assets/,
+	 * which doesn't exist for an external plugin — overriding this points
+	 * get_icon()/get_image()/etc. at our bundled logo so the UI isn't broken.
+	 */
+	public function assets_path(): string {
+		return trailingslashit( FFUB_URL ) . 'assets/';
+	}
+
 	/** Single-step global connect wizard. */
 	public function settings_wizards() {
 		return array(
