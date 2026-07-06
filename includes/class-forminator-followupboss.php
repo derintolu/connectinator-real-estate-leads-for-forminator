@@ -300,6 +300,16 @@ final class Forminator_Followupboss extends Forminator_Integration {
 			$form_name
 		);
 
+		/**
+		 * Filter the Follow Up Boss event payload before it is sent.
+		 *
+		 * @param array  $event    Events API payload (source/system/type/message/person).
+		 * @param int    $form_id  Forminator form id the entry belongs to.
+		 * @param int    $entry_id Forminator entry id.
+		 * @param object $addon    The integration instance.
+		 */
+		$event = apply_filters( 'forminator_fub/event', $event, (int) $form_id, (int) $entry_id, $addon );
+
 		try {
 			$addon->get_api()->create_event( $event );
 		} catch ( Exception $e ) {

@@ -75,6 +75,8 @@ class Forminator_Followupboss_Form_Hooks extends Forminator_Integration_Form_Hoo
 			$form   = Forminator_API::get_form( $this->module_id );
 			$fname  = ( ! is_wp_error( $form ) && isset( $form->name ) && $form->name ) ? (string) $form->name : ( 'Forminator Form #' . (int) $this->module_id );
 			$event  = Forminator_Followupboss::build_event( $this->addon, $person, implode( "\n", $lines ), $fname );
+			/** @see Forminator_Followupboss::push_entry() for the filter contract. */
+			$event  = apply_filters( 'forminator_fub/event', $event, (int) $this->module_id, 0, $this->addon );
 			$api    = $this->addon->get_api();
 			$api->create_event( $event );
 
