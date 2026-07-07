@@ -1,8 +1,8 @@
-=== Follow Up Boss for Forminator ===
-Contributors: fullrealtyservices
+=== Lead Sync for Follow Up Boss & Forminator ===
+Contributors: derintolu
 Tags: forminator, follow up boss, crm, real estate, leads
 Requires at least: 6.2
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later

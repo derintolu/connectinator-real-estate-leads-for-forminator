@@ -29,10 +29,10 @@ foreach ( $template_vars as $key => $val ) {
 
 <div class="forminator-integration-popup__header">
 	<h3 id="forminator-integration-popup__title" class="sui-box-title sui-lg" style="overflow: initial; white-space: normal; text-overflow: initial;">
-		<?php esc_html_e( 'Connect Follow Up Boss', 'forminator-followup-boss' ); ?>
+		<?php esc_html_e( 'Connect Follow Up Boss', 'lead-sync-for-follow-up-boss-forminator' ); ?>
 	</h3>
 	<p id="forminator-integration-popup__description" class="sui-description">
-		<?php esc_html_e( 'Enter your Follow Up Boss API key (Follow Up Boss → Admin → API).', 'forminator-followup-boss' ); ?>
+		<?php esc_html_e( 'Enter your Follow Up Boss API key (Follow Up Boss → Admin → API).', 'lead-sync-for-follow-up-boss-forminator' ); ?>
 	</p>
 	<?php if ( ! empty( $vars['error_message'] ) ) : ?>
 		<?php
@@ -44,10 +44,10 @@ foreach ( $template_vars as $key => $val ) {
 
 <form>
 	<div class="sui-form-field<?php echo esc_attr( ! empty( $vars['api_key_error'] ) ? ' sui-form-field-error' : '' ); ?>">
-		<label class="sui-label"><?php esc_html_e( 'API Key', 'forminator-followup-boss' ); ?></label>
+		<label class="sui-label"><?php esc_html_e( 'API Key', 'lead-sync-for-follow-up-boss-forminator' ); ?></label>
 		<div class="sui-control-with-icon">
 			<input name="api_key" value="<?php echo esc_attr( $vars['api_key'] ); ?>"
-				placeholder="<?php esc_attr_e( 'Enter your Follow Up Boss API key', 'forminator-followup-boss' ); ?>"
+				placeholder="<?php esc_attr_e( 'Enter your Follow Up Boss API key', 'lead-sync-for-follow-up-boss-forminator' ); ?>"
 				class="sui-form-control" autocomplete="off" />
 			<i class="sui-icon-key" aria-hidden="true"></i>
 		</div>
@@ -57,18 +57,18 @@ foreach ( $template_vars as $key => $val ) {
 	</div>
 
 	<div class="sui-form-field">
-		<label class="sui-label"><?php esc_html_e( 'Lead source', 'forminator-followup-boss' ); ?></label>
+		<label class="sui-label"><?php esc_html_e( 'Lead source', 'lead-sync-for-follow-up-boss-forminator' ); ?></label>
 		<input name="source" value="<?php echo esc_attr( $vars['source'] ); ?>"
-			placeholder="<?php esc_attr_e( 'Defaults to the form name', 'forminator-followup-boss' ); ?>" class="sui-form-control" />
+			placeholder="<?php esc_attr_e( 'Defaults to the form name', 'lead-sync-for-follow-up-boss-forminator' ); ?>" class="sui-form-control" />
 	</div>
 
 	<div class="sui-form-field">
-		<label class="sui-label"><?php esc_html_e( 'System name', 'forminator-followup-boss' ); ?></label>
+		<label class="sui-label"><?php esc_html_e( 'System name', 'lead-sync-for-follow-up-boss-forminator' ); ?></label>
 		<input name="system" value="<?php echo esc_attr( $vars['system'] ); ?>" class="sui-form-control" />
 	</div>
 
 	<div class="sui-form-field">
-		<label class="sui-label"><?php esc_html_e( 'Event type', 'forminator-followup-boss' ); ?></label>
+		<label class="sui-label"><?php esc_html_e( 'Event type', 'lead-sync-for-follow-up-boss-forminator' ); ?></label>
 		<select name="event_type" class="sui-select">
 			<?php foreach ( (array) $vars['event_types'] as $type ) : ?>
 				<option value="<?php echo esc_attr( $type ); ?>" <?php selected( $vars['event_type'], $type ); ?>><?php echo esc_html( $type ); ?></option>
@@ -77,8 +77,8 @@ foreach ( $template_vars as $key => $val ) {
 	</div>
 
 	<div class="sui-form-field">
-		<label class="sui-label"><?php esc_html_e( 'Tags', 'forminator-followup-boss' ); ?></label>
+		<label class="sui-label"><?php esc_html_e( 'Tags', 'lead-sync-for-follow-up-boss-forminator' ); ?></label>
 		<input name="tags" value="<?php echo esc_attr( $vars['tags'] ); ?>"
-			placeholder="<?php esc_attr_e( 'Comma-separated, applied to every contact', 'forminator-followup-boss' ); ?>" class="sui-form-control" />
+			placeholder="<?php esc_attr_e( 'Comma-separated, applied to every contact', 'lead-sync-for-follow-up-boss-forminator' ); ?>" class="sui-form-control" />
 	</div>
 </form>

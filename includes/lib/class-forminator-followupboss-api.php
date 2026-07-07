@@ -70,7 +70,7 @@ class Forminator_Followupboss_Api {
 		if ( $code < 200 || $code >= 300 ) {
 			$message = is_array( $decoded ) && ! empty( $decoded['errorMessage'] )
 				? $decoded['errorMessage']
-				: sprintf( /* translators: %d: HTTP status code. */ esc_html__( 'Follow Up Boss returned HTTP %d.', 'forminator-followup-boss' ), $code );
+				: sprintf( /* translators: %d: HTTP status code. */ esc_html__( 'Follow Up Boss returned HTTP %d.', 'lead-sync-for-follow-up-boss-forminator' ), $code );
 			throw new Forminator_Integration_Exception( esc_html( $message ) );
 		}
 

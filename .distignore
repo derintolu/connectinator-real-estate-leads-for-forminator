@@ -1,0 +1,10 @@
+# Files and folders excluded from the distributed plugin zip (wordpress.org).
+/.git
+/.github
+/.gitignore
+/.gitattributes
+/.distignore
+/.DS_Store
+.DS_Store
+/node_modules
+*.log

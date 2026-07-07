@@ -24,8 +24,8 @@ foreach ( $template_vars as $key => $val ) {
 ?>
 
 <div class="forminator-integration-popup__header">
-	<h3 id="forminator-integration-popup__title" class="sui-box-title sui-lg" style="overflow: initial; white-space: normal; text-overflow: initial;"><?php esc_html_e( 'Set up a name', 'forminator-followup-boss' ); ?></h3>
-	<p id="forminator-integration-popup__description" class="sui-description"><?php esc_html_e( 'Give this connection a friendly name so you can identify it.', 'forminator-followup-boss' ); ?></p>
+	<h3 id="forminator-integration-popup__title" class="sui-box-title sui-lg" style="overflow: initial; white-space: normal; text-overflow: initial;"><?php esc_html_e( 'Set up a name', 'lead-sync-for-follow-up-boss-forminator' ); ?></h3>
+	<p id="forminator-integration-popup__description" class="sui-description"><?php esc_html_e( 'Give this connection a friendly name so you can identify it.', 'lead-sync-for-follow-up-boss-forminator' ); ?></p>
 	<?php if ( ! empty( $vars['error_message'] ) ) : ?>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already escaped.
@@ -36,9 +36,9 @@ foreach ( $template_vars as $key => $val ) {
 
 <form>
 	<div class="sui-form-field <?php echo esc_attr( ! empty( $vars['name_error'] ) ? 'sui-form-field-error' : '' ); ?>">
-		<label class="sui-label"><?php esc_html_e( 'Name', 'forminator-followup-boss' ); ?></label>
+		<label class="sui-label"><?php esc_html_e( 'Name', 'lead-sync-for-follow-up-boss-forminator' ); ?></label>
 		<input class="sui-form-control" name="name" value="<?php echo esc_attr( $vars['name'] ); ?>"
-			placeholder="<?php esc_attr_e( 'Friendly name', 'forminator-followup-boss' ); ?>">
+			placeholder="<?php esc_attr_e( 'Friendly name', 'lead-sync-for-follow-up-boss-forminator' ); ?>">
 		<?php if ( ! empty( $vars['name_error'] ) ) : ?>
 			<span class="sui-error-message"><?php echo esc_html( $vars['name_error'] ); ?></span>
 		<?php endif; ?>

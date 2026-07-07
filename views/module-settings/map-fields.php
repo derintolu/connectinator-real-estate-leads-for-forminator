@@ -26,8 +26,8 @@ foreach ( $template_vars as $key => $val ) {
 ?>
 
 <div class="forminator-integration-popup__header">
-	<h3 id="forminator-integration-popup__title" class="sui-box-title sui-lg" style="overflow: initial; white-space: normal; text-overflow: initial;"><?php esc_html_e( 'Assign fields', 'forminator-followup-boss' ); ?></h3>
-	<p id="forminator-integration-popup__description" class="sui-description"><?php esc_html_e( 'Match your form fields to Follow Up Boss contact fields.', 'forminator-followup-boss' ); ?></p>
+	<h3 id="forminator-integration-popup__title" class="sui-box-title sui-lg" style="overflow: initial; white-space: normal; text-overflow: initial;"><?php esc_html_e( 'Assign fields', 'lead-sync-for-follow-up-boss-forminator' ); ?></h3>
+	<p id="forminator-integration-popup__description" class="sui-description"><?php esc_html_e( 'Match your form fields to Follow Up Boss contact fields.', 'lead-sync-for-follow-up-boss-forminator' ); ?></p>
 	<?php if ( ! empty( $vars['error_message'] ) ) : ?>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already escaped.
@@ -40,8 +40,8 @@ foreach ( $template_vars as $key => $val ) {
 	<table class="sui-table">
 		<thead>
 			<tr>
-				<th><?php esc_html_e( 'Follow Up Boss Field', 'forminator-followup-boss' ); ?></th>
-				<th><?php esc_html_e( 'Forminator Field', 'forminator-followup-boss' ); ?></th>
+				<th><?php esc_html_e( 'Follow Up Boss Field', 'lead-sync-for-follow-up-boss-forminator' ); ?></th>
+				<th><?php esc_html_e( 'Forminator Field', 'lead-sync-for-follow-up-boss-forminator' ); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -55,7 +55,7 @@ foreach ( $template_vars as $key => $val ) {
 				<td><?php echo esc_html( $field_title ); ?></td>
 				<td>
 					<div class="sui-form-field <?php echo esc_attr( ! empty( $current_error ) ? 'sui-form-field-error' : '' ); ?>">
-						<select class="sui-select sui-select-sm" name="fields_map[<?php echo esc_attr( $key ); ?>]" data-placeholder="<?php esc_attr_e( 'Select a field', 'forminator-followup-boss' ); ?>">
+						<select class="sui-select sui-select-sm" name="fields_map[<?php echo esc_attr( $key ); ?>]" data-placeholder="<?php esc_attr_e( 'Select a field', 'lead-sync-for-follow-up-boss-forminator' ); ?>">
 							<option></option>
 							<?php foreach ( $forminator_fields as $field_key => $field_label ) : ?>
 								<option value="<?php echo esc_attr( $field_key ); ?>" <?php selected( $current_selected, $field_key ); ?>>

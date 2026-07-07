@@ -32,7 +32,7 @@ final class Forminator_Followupboss extends Forminator_Integration {
 	protected $_sensitive_keys = array( 'api_key' );
 
 	public function __construct() {
-		$this->_description    = esc_html__( 'Send Forminator leads to Follow Up Boss.', 'forminator-followup-boss' );
+		$this->_description    = esc_html__( 'Send Forminator leads to Follow Up Boss.', 'lead-sync-for-follow-up-boss-forminator' );
 		$this->is_multi_global = false;
 	}
 
@@ -102,7 +102,7 @@ final class Forminator_Followupboss extends Forminator_Integration {
 			try {
 				$api_key = $this->get_real_value( $submitted_data['api_key'] ?? '', 'api_key' );
 				if ( empty( $api_key ) ) {
-					throw new Forminator_Integration_Exception( esc_html__( 'Please enter your Follow Up Boss API key.', 'forminator-followup-boss' ) );
+					throw new Forminator_Integration_Exception( esc_html__( 'Please enter your Follow Up Boss API key.', 'lead-sync-for-follow-up-boss-forminator' ) );
 				}
 				$this->validate_api( $api_key );
 
@@ -138,12 +138,12 @@ final class Forminator_Followupboss extends Forminator_Integration {
 		} else {
 			if ( $this->is_connected() ) {
 				$buttons['disconnect'] = array(
-					'markup' => self::get_button_markup( esc_html__( 'Disconnect', 'forminator' ), 'sui-button-ghost forminator-addon-disconnect' ),
+					'markup' => self::get_button_markup( esc_html__( 'Disconnect', 'lead-sync-for-follow-up-boss-forminator' ), 'sui-button-ghost forminator-addon-disconnect' ),
 				);
 			}
 			$buttons['submit'] = array(
 				'markup' => '<div class="sui-actions-right">' .
-					self::get_button_markup( esc_html__( 'Connect', 'forminator' ), 'forminator-addon-connect' ) .
+					self::get_button_markup( esc_html__( 'Connect', 'lead-sync-for-follow-up-boss-forminator' ), 'forminator-addon-connect' ) .
 					'</div>',
 			);
 			$html = self::get_template( $template, $template_params );
@@ -172,7 +172,7 @@ final class Forminator_Followupboss extends Forminator_Integration {
 		$api      = new Forminator_Followupboss_Api( $api_key );
 		$identity = $api->get_identity(); // throws on non-2xx
 		if ( empty( $identity['account'] ) ) {
-			throw new Forminator_Integration_Exception( esc_html__( 'Could not verify the Follow Up Boss account for this key.', 'forminator-followup-boss' ) );
+			throw new Forminator_Integration_Exception( esc_html__( 'Could not verify the Follow Up Boss account for this key.', 'lead-sync-for-follow-up-boss-forminator' ) );
 		}
 	}
 
