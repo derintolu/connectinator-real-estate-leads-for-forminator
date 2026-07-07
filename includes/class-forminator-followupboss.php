@@ -313,7 +313,9 @@ final class Forminator_Followupboss extends Forminator_Integration {
 		try {
 			$addon->get_api()->create_event( $event );
 		} catch ( Exception $e ) {
-			error_log( '[forminator-fub] ' . $e->getMessage() );
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				error_log( '[forminator-fub] ' . $e->getMessage() ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Guarded debug logging for a silent async push failure.
+			}
 		}
 	}
 }
