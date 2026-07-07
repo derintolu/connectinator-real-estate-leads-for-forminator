@@ -41,6 +41,11 @@ In Follow Up Boss, go to Admin → API and create a key.
 = Does it work with entries created by code? =
 Yes. Any plugin can trigger a push with `do_action( 'forminator_fub/push', $form_id, $entry_id )`. This is required for entries added via `Forminator_API::add_form_entry()`, which do not fire Forminator's submission hooks.
 
+== Screenshots ==
+
+1. Follow Up Boss appears as a native connected app in Forminator → Integrations.
+2. The connect screen — paste your Follow Up Boss API key and set the default lead source, system name, event type, and tags.
+
 == Changelog ==
 
 = 1.0.0 =

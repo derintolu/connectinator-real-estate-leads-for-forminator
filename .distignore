@@ -4,6 +4,7 @@
 /.gitignore
 /.gitattributes
 /.distignore
+/.wordpress-org
 /.DS_Store
 .DS_Store
 /node_modules
