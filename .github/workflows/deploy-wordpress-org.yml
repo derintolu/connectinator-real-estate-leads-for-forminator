@@ -1,0 +1,34 @@
+name: Deploy to WordPress.org
+
+# Publishes the plugin to the WordPress.org SVN repository when a GitHub
+# Release is published. The release tag MUST be the bare plugin version
+# (e.g. "1.0.0") — it becomes the SVN tag and must match the "Stable tag"
+# in readme.txt and the "Version" header in the main plugin file.
+#
+# Requires two repository secrets:
+#   SVN_USERNAME  - the wordpress.org account (derintolu)
+#   SVN_PASSWORD  - that account's wordpress.org password
+#
+# Listing assets (icon/banner/screenshots) are read from .wordpress-org/ and
+# published to the SVN assets/ directory. Files listed in .distignore are
+# excluded from the deployed trunk/tag.
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    name: Publish to WordPress.org SVN
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: lead-sync-for-follow-up-boss-forminator
+          ASSETS_DIR: .wordpress-org
