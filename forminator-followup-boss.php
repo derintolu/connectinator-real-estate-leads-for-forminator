@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Connectinator - Real Estate Leads for Forminator
- * Plugin URI:        https://github.com/derintolu/forminator-followup-boss
+ * Plugin URI:        https://github.com/derintolu/connectinator-real-estate-leads-for-forminator
  * Description:       Adds Follow Up Boss as a native integration inside Forminator. Connect with your Follow Up Boss API key and send form entries to Follow Up Boss as leads.
  * Version:           1.0.0
  * Author:            derintolu
