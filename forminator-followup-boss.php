@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name:       Lead Sync for Follow Up Boss & Forminator
- * Plugin URI:        https://github.com/fullrealtyservices/forminator-followup-boss
+ * Plugin Name:       Derintolu Lead Sync for Follow Up Boss & Forminator
+ * Plugin URI:        https://github.com/derintolu/forminator-followup-boss
  * Description:       Adds Follow Up Boss as a native integration inside Forminator. Connect with your Follow Up Boss API key and send form entries to Follow Up Boss as leads.
  * Version:           1.0.0
- * Author:            Full Realty Services
- * Author URI:        https://21stcenturylending.com
+ * Author:            derintolu
+ * Author URI:        https://derintolu.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       lead-sync-for-follow-up-boss-forminator
+ * Text Domain:       derintolu-lead-sync-follow-up-boss-forminator
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  forminator

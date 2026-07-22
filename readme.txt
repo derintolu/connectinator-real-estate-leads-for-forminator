@@ -1,4 +1,4 @@
-=== Lead Sync for Follow Up Boss & Forminator ===
+=== Derintolu Lead Sync for Follow Up Boss & Forminator ===
 Contributors: derintolu
 Tags: forminator, follow up boss, crm, real estate, leads
 Requires at least: 6.2
@@ -25,7 +25,7 @@ Features:
 
 == External services ==
 
-This plugin sends form submission data (name, email, phone, and the submitted field values) to Follow Up Boss (https://www.followupboss.com/) via its API (https://api.followupboss.com) when you connect the integration and enable it on a form. Data is transmitted only for forms you configure. See the Follow Up Boss Privacy Policy: https://www.followupboss.com/privacy-policy/
+This plugin sends form submission data (name, email, phone, and the submitted field values) to Follow Up Boss (https://www.followupboss.com/) via its API (https://api.followupboss.com) when you connect the integration and enable it on a form. Data is transmitted only for forms you configure. See the Follow Up Boss Privacy Policy: https://www.followupboss.com/privacy
 
 == Installation ==
 
