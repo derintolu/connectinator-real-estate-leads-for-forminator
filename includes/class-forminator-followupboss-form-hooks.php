@@ -58,7 +58,7 @@ class Forminator_Followupboss_Form_Hooks extends Forminator_Integration_Form_Hoo
 				'phone'     => $get( 'phone' ),
 			);
 			if ( '' === $person['email'] && '' === $person['phone'] ) {
-				throw new Forminator_Integration_Exception( esc_html__( 'No email or phone in the submission.', 'real-estate-leads-for-forminator' ) );
+				throw new Forminator_Integration_Exception( esc_html__( 'No email or phone in the submission.', 'connectinator-real-estate-leads-for-forminator' ) );
 			}
 
 			// Human-readable dump of every submitted field for the event message.
@@ -83,7 +83,7 @@ class Forminator_Followupboss_Form_Hooks extends Forminator_Integration_Form_Hoo
 			return array(
 				'is_sent'         => true,
 				'connection_name' => $name,
-				'description'     => esc_html__( 'Sent to Follow Up Boss.', 'real-estate-leads-for-forminator' ),
+				'description'     => esc_html__( 'Sent to Follow Up Boss.', 'connectinator-real-estate-leads-for-forminator' ),
 				'data_sent'       => $api->get_last_data_sent(),
 				'data_received'   => $api->get_last_data_received(),
 				'url_request'     => $api->get_last_url_request(),
