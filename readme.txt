@@ -1,4 +1,4 @@
-=== Derintolu Lead Sync for Follow Up Boss & Forminator ===
+=== Real Estate Leads for Forminator ===
 Contributors: derintolu
 Tags: forminator, follow up boss, crm, real estate, leads
 Requires at least: 6.2

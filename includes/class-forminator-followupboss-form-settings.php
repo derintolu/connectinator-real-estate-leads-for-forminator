@@ -15,10 +15,10 @@ class Forminator_Followupboss_Form_Settings extends Forminator_Integration_Form_
 	/** Destination fields offered for mapping. */
 	private function destination_fields() {
 		return array(
-			'email'      => esc_html__( 'Email Address', 'derintolu-lead-sync-follow-up-boss-forminator' ),
-			'first_name' => esc_html__( 'First Name', 'derintolu-lead-sync-follow-up-boss-forminator' ),
-			'last_name'  => esc_html__( 'Last Name', 'derintolu-lead-sync-follow-up-boss-forminator' ),
-			'phone'      => esc_html__( 'Phone', 'derintolu-lead-sync-follow-up-boss-forminator' ),
+			'email'      => esc_html__( 'Email Address', 'real-estate-leads-for-forminator' ),
+			'first_name' => esc_html__( 'First Name', 'real-estate-leads-for-forminator' ),
+			'last_name'  => esc_html__( 'Last Name', 'real-estate-leads-for-forminator' ),
+			'phone'      => esc_html__( 'Phone', 'real-estate-leads-for-forminator' ),
 		);
 	}
 
@@ -59,7 +59,7 @@ class Forminator_Followupboss_Form_Settings extends Forminator_Integration_Form_
 			$template_params['name'] = $name;
 			try {
 				if ( empty( $name ) ) {
-					throw new Forminator_Integration_Exception( esc_html__( 'Please enter a name for this connection.', 'derintolu-lead-sync-follow-up-boss-forminator' ) );
+					throw new Forminator_Integration_Exception( esc_html__( 'Please enter a name for this connection.', 'real-estate-leads-for-forminator' ) );
 				}
 				$this->save_multi_id_setting_values(
 					$multi_id,
@@ -73,7 +73,7 @@ class Forminator_Followupboss_Form_Settings extends Forminator_Integration_Form_
 
 		$buttons                   = array();
 		$buttons['next']['markup'] = '<div class="sui-actions-right">' .
-			Forminator_Integration::get_button_markup( esc_html__( 'Next', 'derintolu-lead-sync-follow-up-boss-forminator' ), 'forminator-addon-next' ) .
+			Forminator_Integration::get_button_markup( esc_html__( 'Next', 'real-estate-leads-for-forminator' ), 'forminator-addon-next' ) .
 			'</div>';
 
 		return array(
@@ -126,12 +126,12 @@ class Forminator_Followupboss_Form_Settings extends Forminator_Integration_Form_
 			try {
 				$input_exceptions = new Forminator_Integration_Settings_Exception();
 				if ( empty( $fields_map['email'] ) && empty( $fields_map['phone'] ) ) {
-					$input_exceptions->add_input_exception( esc_html__( 'Map at least an Email or Phone field.', 'derintolu-lead-sync-follow-up-boss-forminator' ), 'email_error' );
+					$input_exceptions->add_input_exception( esc_html__( 'Map at least an Email or Phone field.', 'real-estate-leads-for-forminator' ), 'email_error' );
 				}
 				foreach ( $fields as $key => $title ) {
 					if ( ! empty( $fields_map[ $key ] ) && ! in_array( $fields_map[ $key ], $forminator_field_element_ids, true ) ) {
 						$input_exceptions->add_input_exception(
-							sprintf( /* translators: %s: field title. */ esc_html__( 'Please assign a valid field for %s', 'derintolu-lead-sync-follow-up-boss-forminator' ), esc_html( $title ) ),
+							sprintf( /* translators: %s: field title. */ esc_html__( 'Please assign a valid field for %s', 'real-estate-leads-for-forminator' ), esc_html( $title ) ),
 							$key . '_error'
 						);
 					}
@@ -151,11 +151,11 @@ class Forminator_Followupboss_Form_Settings extends Forminator_Integration_Form_
 
 		$buttons = array(
 			'disconnect' => array(
-				'markup' => Forminator_Integration::get_button_markup( esc_html__( 'Deactivate', 'derintolu-lead-sync-follow-up-boss-forminator' ), 'sui-button-ghost forminator-addon-form-disconnect' ),
+				'markup' => Forminator_Integration::get_button_markup( esc_html__( 'Deactivate', 'real-estate-leads-for-forminator' ), 'sui-button-ghost forminator-addon-form-disconnect' ),
 			),
 			'submit'     => array(
 				'markup' => '<div class="sui-actions-right">' .
-					Forminator_Integration::get_button_markup( esc_html__( 'Save', 'derintolu-lead-sync-follow-up-boss-forminator' ), 'forminator-addon-finish' ) .
+					Forminator_Integration::get_button_markup( esc_html__( 'Save', 'real-estate-leads-for-forminator' ), 'forminator-addon-finish' ) .
 					'</div>',
 			),
 		);
